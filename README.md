@@ -1,9 +1,15 @@
 # BAN 701 Assignment 9 - Dual-Approach Feature Implementation
 
-## Project Overview
-This repository demonstrates a dual-approach development workflow, comparing a manual coding approach against an AI-assisted approach across two isolated feature branches (`manual-feature` and `ai-feature`).
+## Project Description
+A simple Python program that generates random sci-fi characters for tabletop games. Each character gets a name, pronouns, background details, stats, and a randomly assigned portrait image reference.
 
----
+## Initial Version
+- **Random name and pronouns:** Picks a name from a list and assigns pronouns based on a dice roll.
+- **Background details:** Randomly selects an occupation, home planet or station, motivation, and quirk.
+- **Stats:** Rolls STR, SPD, INT, and COMBAT (2d10 + 25).
+- **Saves:** Rolls Sanity, Fear, and Body (2d10 + 10).
+- **Health:** Rolls HP (1d10 + 10).
+- **Menu:** Lets the user generate a character, export characters, or exit.
 
 ## Feature Development Comparison
 
