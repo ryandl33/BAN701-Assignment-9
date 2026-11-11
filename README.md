@@ -27,7 +27,10 @@ A Python program that generates random sci-fi characters for tabletop games. Eac
   2. Choose option 2 before generating anything. The program prints a message and creates no file.
 
 ## Feature Development Comparison
-(150–250 words. Replace the brackets with your real answers.)
+- On the manual branch I added random portrait assignment. I wrote get_random_images(). It uses glob and os to search for the images. It searches the subfolders for .jpg, jpeg, and png files, chooses one at random and returns a failback message if none are found. 
+- On the AI branch I gave Claude a task of implementing the xlsx export since the images would only display texts in a csv file. It produced the export_to_excel() function, which uses openpyxl to write a formatted .xlsx file with a header row and auto-sized columns to the Downloads folder, using the timestamped names.
+1. Did it work on the first attempt? It did not work the first time. Both branches also changed export code which caused a merge conflict. I resolved it by removing the older export function and keeping the AI's export_to_excel(). Which embedded the portrait images in the spreadsheet. As a result the final export lists image paths as text instead of displaying the actual picture. I also remove the unused csv import.
+2. Which approach gave you more confidence? I found the manual approach gave me more confidence since I knew what I was doing. Whereas the AI feature approach I wasn't familiar with the opensyxl library. 
 
 On the manual branch I built [how you built the portrait feature, e.g. used os and glob to scan the images folder]. On the AI branch I gave Claude [what you gave it] and it produced an Excel export using openpyxl.
 
