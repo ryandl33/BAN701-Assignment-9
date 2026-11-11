@@ -1,5 +1,4 @@
-# Sci-Fi Character Generator
-BAN701 – Assignment 8
+# BAN 701 Assignment 9 - Dual-Approach Feature Implementation
 
 ## Project Description
 A simple Python program that generates random sci-fi characters for tabletop games. Each character gets a name, pronouns, background details, stats, and a randomly assigned portrait image reference.
@@ -12,27 +11,15 @@ A simple Python program that generates random sci-fi characters for tabletop gam
 - **Health:** Rolls HP (1d10 + 10).
 - **Menu:** Lets the user generate a character, export characters, or exit.
 
-## AI Tool Used
-Claude (Anthropic)
+## Feature Development Comparison
 
-## AI Assistance
-Used for CSV export and quantity input logic, plus debugging guidance.
+### Feature Overview & Approaches
+* **Manual Branch (`manual-feature`):** Implemented an automated random portrait image assignment feature using only Python’s standard libraries (`os`, `glob`, `pathlib`, `random`). This required writing custom path-traversal logic to recursively discover asset subfolders.
+* **AI Branch (`ai-feature`):** Implemented an Excel (`.xlsx`) roster export feature using the third-party `openpyxl` library guided by generative AI.
 
-## New or Modified Features (Manual-Feature Branch)
-- **Random Portrait Image Assignment:** Recursively scans local subfolders (`images/100 Android Faces` and `images/100 Human sci-fi faces`) to randomly assign a character portrait file path to each generated record.
+### AI Code Evaluation & Modifications
+* **First-Attempt Accuracy:** The AI-produced `openpyxl` export code was functional overall but required a minor adjustment on the first attempt regarding operating system path resolution for the local `Downloads` directory.
+* **Modified / Rejected Code:** The initial snippet generated a hardcoded file path; it was modified to dynamically detect the OS environment (Windows vs. Unix) and implement auto-adjusted column width logic to ensure proper data formatting and prevent visual truncation.
 
-### Feature Specification: Random Portrait Assignment
-- **Feature Name:** Automated Random Image Assignment
-- **Purpose:** Automatically scans local asset directories and attaches a unique, random portrait path to every character record.
-- **Expected Behavior:** Locates the `images/` directory using absolute script paths, discovers valid image files recursively across subfolders, and selects one at random.
-- **Test Cases:**
-  1. *Test Case 1:* Generate 1 character; verify an absolute file path pointing to a valid image in the subfolders is included in the output.
-  2. *Test Case 2:* Generate 25 characters; verify unique random images are assigned across the batch without errors.
-
-## Evaluation of AI Output
-Accepted CSV export and quantity input after testing. Kept timestamped filenames to prevent overwriting.
-
-## How to Run the Program
-1. Install Python 3 and dependencies (`pip install openpyxl pillow`).
-2. Download or clone this repository and ensure an `images/` folder with subfolders is present.
-3. Run: `python main.py`
+### Confidence & Reflection
+The manual approach provided greater confidence in foundational system-level handling (such as raw file paths and error management), while the AI approach significantly accelerated third-party library integration and boilerplate data styling. Combining both workflows highlighted how AI excels at rapid library implementation, whereas manual coding deepens structural control.
